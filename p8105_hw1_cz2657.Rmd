@@ -47,3 +47,12 @@ mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
 ```
 
 The `penguins` dataset describes the a group of penguins. Important variables include `species`, `island`, and `sex`, which indicate the type of penguin and where he/she resides. Other variables describe the size of the penguin, including `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. Finally, the variable `year` is included for each penguin. The dataset has `r nrow(penguins)` rows or observations and `r ncol(penguins)` columns or variables. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)`, excluding NA values. 
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species))+geom_point()
+
+ggsave("first_scatterplot.pdf", plot = last_plot())
+```
+
+The plot is saved as a pdf. 
+
