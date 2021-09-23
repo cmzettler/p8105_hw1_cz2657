@@ -24,5 +24,18 @@ mean(pull(hw1df_df, vec_char))
 mean(pull(hw1df_df, vec_factor))
 ```
 
-It appears that we can take the mean of a numeric/ double vectors and logical vectors, but you cannot take the mean of a character or factor vector. 
+It appears that we can take the mean of a numeric and logical variables, but not character or factor variables, according to the R warning messages 
+
+`as.numeric(vec_logical)`
+`as.numeric(vec_char)`
+`as.numeric(vec_factor)`
+
+When attempting to convert logical or character variables to numeric variables, RStudio produces an error that the object `vec_logical` or `vec_char` is not found. However, it will convert a factor variable into numeric levels in alphabetical order. 
+
+This does explain why it is not possible to take the mean of a character variable, as R cannot deal with it numerically. It also likely explains that R cannot take the mean of a factor variable unless it is converted into a numeric variable. Finally, it is not clear why R can take the mean of the logical variable (presumably counting TRUE as 1 and FALSE as 0), but cannot assign those values to the variable in converting to a numeric variable. 
+
+**WHY NO MEAN but, yes convert and vise versa? 
+
+## Problem 2
+
 
