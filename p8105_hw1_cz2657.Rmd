@@ -57,7 +57,7 @@ Now, I'll construct a plot
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species))+geom_point()
 
-ggsave("first_scatterplot.pdf", plot = last_plot())
+ggsave("first_scatterplot.pdf")
 ```
 
 The plot is saved as a pdf. 
