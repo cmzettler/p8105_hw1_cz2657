@@ -22,19 +22,24 @@ mean(pull(hw1df_df, x))
 mean(pull(hw1df_df, vec_logical))
 mean(pull(hw1df_df, vec_char))
 mean(pull(hw1df_df, vec_factor))
+
 ```
 
 It appears that we can take the mean of a numeric and logical variables, but not character or factor variables, according to the R warning messages 
 
-`as.numeric(vec_logical)`
-`as.numeric(vec_char)`
-`as.numeric(vec_factor)`
+Now let's try to convert to numeric: 
 
-When attempting to convert logical or character variables to numeric variables, RStudio produces an error that the object `vec_logical` or `vec_char` is not found. However, it will convert a factor variable into numeric levels in alphabetical order. 
+`as.numeric(pull(hw1df_df, vec_logical))`
+`as.numeric(pull(hw1df_df, vec_char))`
+`as.numeric(pull(hw1df_df, vec_factor))`
 
-This does explain why it is not possible to take the mean of a character variable, as R cannot deal with it numerically. It also likely explains that R cannot take the mean of a factor variable unless it is converted into a numeric variable. Finally, it is not clear why R can take the mean of the logical variable (presumably counting TRUE as 1 and FALSE as 0), but cannot assign those values to the variable in converting to a numeric variable. 
+We can convert logical and factor variables to numeric values, but RStudio produces an error when trying to convert character variables to numeric values. 
 
-**WHY NO MEAN but, yes convert and vise versa? 
+This explains why it is not possible to take the mean of a character variable, as R cannot deal with it numerically. 
+
+It also demonstrates that R cannot take the mean of a factor variable unless it is converted into a numeric variable. 
+
+Finally, RStudio must store "TRUE" and "FALSE" as 1 and 0, respectively, for logical variables, so it assigns those values explicitly when taking the mean but shows "TRUE" and "FALSE" in the dataframe. 
 
 ## Problem 2
 
@@ -43,10 +48,11 @@ data("penguins", package = "palmerpenguins")
 
 penguins 
 
-mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
 ```
 
-The `penguins` dataset describes the a group of penguins. Important variables include `species`, `island`, and `sex`, which indicate the type of penguin and where he/she resides. Other variables describe the size of the penguin, including `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. Finally, the variable `year` is included for each penguin. The dataset has `r nrow(penguins)` rows or observations and `r ncol(penguins)` columns or variables. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)`, excluding NA values. 
+The `penguins` dataset describes the a group of penguins. Important variables include `species`, `island`, and `sex`, which indicate the type of penguin and where he/she resides. Other variables describe the size of the penguin, including `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`, which provide specific measurements of each penguin. Finally, the variable `year` is included for each penguin. The dataset has `r nrow(penguins)` rows or observations and `r ncol(penguins)` columns or variables. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)`, excluding NA values. 
+
+Now, I'll construct a plot
 
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species))+geom_point()
