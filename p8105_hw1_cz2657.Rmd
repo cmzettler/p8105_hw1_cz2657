@@ -44,9 +44,9 @@ We can convert logical and factor variables to numeric values, but RStudio produ
 
 *   This explains why it is not possible to take the mean of a character variable, as R cannot deal with it numerically. 
 
-*   It also demonstrates why R cannot take the mean of a factor variable, as it must first be converted into a numeric variable. 
+*   R cannot take the mean of a factor variable, as it must first be converted into a numeric variable. 
 
-*   For logical variables, RStudio seems to store "TRUE" and "FALSE" as 1 and 0, respectively, so it assigns those values explicitly when taking the mean, but shows only "TRUE" and "FALSE" in the dataframe. Therefore, a logical variable can be readily converted into a numeric variable. 
+*   For logical variables, RStudio seems to store "TRUE" and "FALSE" as 1 and 0, respectively, so it assigns those values implicitly when taking the mean, but shows only "TRUE" and "FALSE" in the dataframe. Therefore, a logical variable can be readily converted into a numeric variable. 
 
 ## Problem 2
 
