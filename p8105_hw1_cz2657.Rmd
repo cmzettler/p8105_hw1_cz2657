@@ -54,7 +54,7 @@ We can convert logical and factor variables to numeric values, but RStudio produ
 data("penguins", package = "palmerpenguins")
 ```
 
-The `penguins` dataset describes the a group of penguins. Important variables include `species`, `island`, and `sex`, which indicate the type of penguin and where he/she resides. Other variables describe the size of the penguin, including `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. Finally, the variable `year` is included for each penguin, which spans the years `r min(pull(penguins, year))` to `r max(pull(penguins, year))`. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)`, excluding NA values. 
+The `penguins` dataset describes the a group of penguins. Important variables include `species`, `island`, and `sex`, which indicate the type of penguin and where he/she resides. Other variables describe the size of the penguin, including `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. Finally, the variable `year` is included for each penguin, which spans the years `r min(pull(penguins, year))` to `r max(pull(penguins, year))`. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` mm, excluding missing values. 
 
 Now, I'll construct a plot
 
